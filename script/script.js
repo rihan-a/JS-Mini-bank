@@ -1,38 +1,116 @@
-let miniBank = {
-    accountBalanceOutput: document.querySelector("#account-balance"),
-    accountBalance: 0,
-    depositInput: document.querySelector("#deposit-input"),
-    depositBtn: document.querySelector("#deposit-btn"),
-    withdrawInput: document.querySelector("#withdraw-input"),
-    withdrawBtn: document.querySelector("#withdraw-btn"),
+class Minibank {
+    constructor() {
+        this.accountBalanceOutput = document.querySelector("#account-balance");
+        this.depositBtn = document.querySelector("#bank-deposit-btn");
+        this.withdrawBtn = document.querySelector("#bank-withdraw-btn");
+        this.userNameInput = document.querySelector("#username-input");
+        this.userNameBtn = document.querySelector("#username-btn");
+        this.welcomeText = document.querySelector("#welcome-text");
+        this.inputBtnGroup = document.querySelector(".to-bank");
+        this.bankInterface = document.querySelector(".bank-interface");
+        this.exitBtn = document.querySelector("#bank-exit-btn");
+        this.actionMenu = document.querySelector("#action-menu");
+        this.actionInputBtn = document.querySelector("#action-input-btn");
+        this.actionInput = document.querySelector("#action-input");
 
-    despositing: function() {
-        this.depositBtn.addEventListener("click", function depositOrder() {
-            miniBank.accountBalance =
-                miniBank.accountBalance + parseInt(miniBank.depositInput.value);
-            miniBank.updateBalance();
-            miniBank.resetingInputs();
-        });
-    },
+        this.accountBalance = 0;
+        this.userNameBtn.addEventListener("click", this.login);
+        this.exitBtn.addEventListener("click", this.exitBank);
+        this.depositBtn.addEventListener("click", this.openActionMenuDeposit);
+        this.withdrawBtn.addEventListener("click", this.openActionMenuWithdraw);
+        this.actionInputBtn.addEventListener("click", this.depositing);
+        this.actionInputBtn.addEventListener("click", this.withdrawing);
+        this.actionInput.innerHTML = this.actionInput.value.toLocaleString("en-US");
+    }
 
-    withdrawing: function() {
-        this.withdrawBtn.addEventListener("click", function withdrawOrder() {
-            miniBank.accountBalance =
-                miniBank.accountBalance - parseInt(miniBank.withdrawInput.value);
-            miniBank.updateBalance();
-            miniBank.resetingInputs();
-        });
-    },
+    login = () => {
+        let userNameInputType = typeof this.userNameInput.value;
 
-    resetingInputs: function() {
-        this.depositInput.value = Number;
-        this.withdrawInput.value = Number;
-    },
+        if (
+            isNaN(Number(this.userNameInput.value)) &&
+            this.userNameInput.value != ""
+        ) {
+            this.inputBtnGroup.style.display = "none";
+            this.welcomeText.innerHTML = `Hi ${this.userNameInput.value}.. `;
+            this.bankInterface.style.display = "block";
+            this.userNameInput.value = "";
+        } else {
+            alert("Plese enter a valid name!");
+        }
+    };
 
-    updateBalance: function() {
-        this.accountBalanceOutput.innerHTML = `${this.accountBalance} $`;
-    },
-};
+    exitBank = () => {
+        this.welcomeText.innerHTML = "Welcome to the mini-bank";
+        this.bankInterface.style.display = "none";
+        this.inputBtnGroup.style.display = "block";
+        this.accountBalance = 0;
+        this.updateBalance();
+        this.actionMenu.style.display = "none";
+    };
 
-miniBank.despositing();
-miniBank.withdrawing();
+    openActionMenuDeposit = () => {
+        this.depositBtn.style.background = "black";
+        this.depositBtn.style.color = "white";
+        this.actionMenu.style.display = "flex";
+        this.depositBtn.value = "YES";
+        this.withdrawBtn.value = "NO";
+        this.withdrawBtn.style.background = "unset";
+        this.withdrawBtn.style.color = "black";
+    };
+
+    openActionMenuWithdraw = () => {
+        this.withdrawBtn.style.background = "black";
+        this.withdrawBtn.style.color = "white";
+        this.actionMenu.style.display = "flex";
+        this.withdrawBtn.value = "YES";
+        this.depositBtn.value = "NO";
+        this.depositBtn.style.background = "unset";
+        this.depositBtn.style.color = "black";
+    };
+
+    depositing = () => {
+        if (this.depositBtn.value == "YES" && this.withdrawBtn.value == "NO") {
+            if (this.actionInput.value <= 0) {
+                alert("Please enter a valid amount!");
+                this.resetingInputs();
+            } else {
+                this.accountBalance =
+                    this.accountBalance + parseInt(this.actionInput.value);
+                this.updateBalance();
+                this.resetingInputs();
+            }
+        }
+    };
+
+    withdrawing = () => {
+        if (this.withdrawBtn.value == "YES" && this.depositBtn.value == "NO") {
+            if (this.accountBalance < this.actionInput.value) {
+                alert(`Sorry, you dont have enough money.`);
+                this.resetingInputs();
+            } else {
+                if (this.actionInput.value <= 0) {
+                    alert("Please enter a valid amount!");
+                    this.resetingInputs();
+                } else {
+                    this.accountBalance =
+                        this.accountBalance - parseInt(this.actionInput.value);
+                    this.updateBalance();
+                    this.resetingInputs();
+                }
+            }
+        }
+    };
+
+    updateBalance = () => {
+        this.accountBalanceOutput.innerHTML = `${this.accountBalance.toLocaleString(
+      "en-US"
+    )}€ `;
+    };
+
+    resetingInputs = () => {
+        this.actionInput.value = Number;
+        //this.withdrawInput.value = Number;
+    };
+}
+
+let theMiniBank = new Minibank();

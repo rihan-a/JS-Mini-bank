@@ -6,28 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
     <title>JS MINI BANK</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="main-title">- MINI - BANK -</h1>
-        <div class="account">
-            <h2 class="sec-title">Current Account Balance</h2>
-            <p id="account-balance">0 $</p>
-        </div>
-        <div class="actions">
-            <div class="action-block">
-                <h2>Deposit in $</h2>
-                <input type="number" id="deposit-input" placeholder="Enter the amout" />
-                <button id="deposit-btn">Enter</button>
-            </div>
+    <div class="welcome-container">
+        <h2 id="welcome-text">Welcome to the mini-bank</h2>
 
-            <div class="action-block">
-                <h2>withdraw in $</h2>
-                <input type="number" id="withdraw-input" placeholder="Enter the amout" />
-                <button id="withdraw-btn">Enter</button>
+        <div class="bank-interface">
+            <h3 class="sec-title">Your current balance is:</h3>
+            <p id="account-balance">0 €</p>
+            <div class="bank-btns">
+                <button value="NO" id="bank-deposit-btn">Deposit</button>
+                <button value="NO" id="bank-withdraw-btn">Withdraw</button>
             </div>
+            <div id="action-menu">
+                <input id="action-input" type="number" placeholder="Enter amount in €" onfocus="this.placeholder=''" onblur="this.placeholder='Enter amount in €'" />
+                <button id="action-input-btn">Enter</button>
+            </div>
+            <button id="bank-exit-btn">Exit Bank</button>
+        </div>
+
+        <div class="to-bank">
+            <input type="text" placeholder="Enter your Username" id="username-input" onfocus="this.placeholder=''" onblur="this.placeholder='Enter your Username'" maxlength="10" />
+            <button id="username-btn">Enter</button>
         </div>
     </div>
 

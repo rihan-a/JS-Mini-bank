@@ -18,25 +18,27 @@
 
 <body>
     <div class="welcome-container">
-        <h2 id="welcome-text">Welcome to the mini-bank</h2>
+        <div class="the-container">
+            <h2 id="welcome-text">Welcome to the mini-bank</h2>
 
-        <div class="bank-interface">
-            <h3 class="sec-title">Your current balance is:</h3>
-            <p id="account-balance">0 €</p>
-            <div class="bank-btns">
-                <button value="NO" id="bank-deposit-btn">Deposit</button>
-                <button value="NO" id="bank-withdraw-btn">Withdraw</button>
+            <div class="bank-interface">
+                <h3 class="sec-title">Your current balance is:</h3>
+                <p id="account-balance">0 €</p>
+                <div class="bank-btns">
+                    <button value="NO" id="bank-deposit-btn">Deposit</button>
+                    <button value="NO" id="bank-withdraw-btn">Withdraw</button>
+                </div>
+                <div id="action-menu">
+                    <input id="action-input" type="number" placeholder="Enter amount in €" onfocus="this.placeholder=''" onblur="this.placeholder='Enter amount in €'" />
+                    <button id="action-input-btn">Enter</button>
+                </div>
+                <button id="bank-exit-btn">Exit Bank</button>
             </div>
-            <div id="action-menu">
-                <input id="action-input" type="number" placeholder="Enter amount in €" onfocus="this.placeholder=''" onblur="this.placeholder='Enter amount in €'" />
-                <button id="action-input-btn">Enter</button>
-            </div>
-            <button id="bank-exit-btn">Exit Bank</button>
-        </div>
 
-        <div class="to-bank">
-            <input type="text" placeholder="Enter your Username" id="username-input" onfocus="this.placeholder=''" onblur="this.placeholder='Enter your Username'" maxlength="10" />
-            <button id="username-btn">Enter</button>
+            <div class="to-bank">
+                <input type="text" placeholder="Enter your Username" id="username-input" onfocus="this.placeholder=''" onblur="this.placeholder='Enter your Username'" maxlength="14" />
+                <button id="username-btn">Enter</button>
+            </div>
         </div>
     </div>
 

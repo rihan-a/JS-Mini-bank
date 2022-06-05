@@ -35,14 +35,14 @@ class Minibank {
             this.bankInterface.style.display = "block";
             this.userNameInput.value = "";
         } else {
-            alert("Plese enter a valid name!");
+            alert("Please enter a valid name!");
         }
     };
 
     exitBank = () => {
         this.welcomeText.innerHTML = "Welcome to the mini-bank";
         this.bankInterface.style.display = "none";
-        this.inputBtnGroup.style.display = "block";
+        this.inputBtnGroup.style.display = "flex";
         this.accountBalance = 0;
         this.updateBalance();
         this.actionMenu.style.display = "none";
@@ -85,7 +85,7 @@ class Minibank {
     withdrawing = () => {
         if (this.withdrawBtn.value == "YES" && this.depositBtn.value == "NO") {
             if (this.accountBalance < this.actionInput.value) {
-                alert(`Sorry, you dont have enough money.`);
+                alert(`Sorry, you don't have enough money.`);
                 this.resetingInputs();
             } else {
                 if (this.actionInput.value <= 0) {
@@ -109,7 +109,6 @@ class Minibank {
 
     resetingInputs = () => {
         this.actionInput.value = Number;
-        //this.withdrawInput.value = Number;
     };
 }
 

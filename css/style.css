@@ -121,6 +121,7 @@ body {
 
 #bank-deposit-btn,
 #bank-withdraw-btn {
+    color: black;
     height: 40px;
     width: 160px;
     border: 1px solid black;
@@ -160,6 +161,7 @@ body {
 }
 
 #action-menu button {
+    color: black;
     height: 100%;
     width: 116px;
     border: 1px solid black;
@@ -179,6 +181,7 @@ body {
 }
 
 #bank-exit-btn {
+    color: black;
     display: block;
     margin: auto;
     width: 100%;

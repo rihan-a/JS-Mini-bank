@@ -70,7 +70,7 @@ class Minibank {
 
     depositing = () => {
         if (this.depositBtn.value == "YES" && this.withdrawBtn.value == "NO") {
-            if (this.actionInput.value <= 0) {
+            if (this.actionInput.value <= 1) {
                 alert("Please enter a valid amount!");
                 this.resetingInputs();
             } else {
@@ -88,7 +88,7 @@ class Minibank {
                 alert(`Sorry, you don't have enough money.`);
                 this.resetingInputs();
             } else {
-                if (this.actionInput.value <= 0) {
+                if (this.actionInput.value <= 1) {
                     alert("Please enter a valid amount!");
                     this.resetingInputs();
                 } else {

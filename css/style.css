@@ -7,6 +7,7 @@
 body {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background: #e0e0e0;
 }
@@ -21,13 +22,6 @@ body {
     width: 650px;
     height: 550px;
     border-radius: 15px;
-
-    /* background: rgb(238, 174, 202); */
-    /* background: radial-gradient(
-        circle,
-        rgba(238, 174, 202, 1) 0%,
-        rgba(148, 187, 233, 1) 100%
-    ); */
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
@@ -243,4 +237,21 @@ body {
     .bank-interface {
         width: 100%;
     }
+}
+
+.transactions {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.transactions h3 {
+    margin-top: 20px;
+    color: grey;
+}
+.transaction-list {
+    margin-top: 10px;
+    color: grey;
 }

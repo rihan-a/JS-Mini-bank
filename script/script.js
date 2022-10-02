@@ -13,6 +13,7 @@ class Minibank {
         this.actionInputBtn = document.querySelector("#action-input-btn");
         this.actionInput = document.querySelector("#action-input");
         this.transactionsList = document.querySelector(".transaction-list");
+        this.transactionsContainer = document.querySelector(".transactions");
 
         this.accountBalance = 0;
         this.userNameBtn.addEventListener("click", this.login);
@@ -35,6 +36,7 @@ class Minibank {
             this.inputBtnGroup.style.display = "none";
             this.welcomeText.innerHTML = `Hi ${this.userNameInput.value}.. `;
             this.bankInterface.style.display = "block";
+            this.transactionsContainer.style.display = "flex";
             this.userNameInput.value = "";
         } else {
             alert("Please enter a valid name!");
@@ -78,7 +80,11 @@ class Minibank {
             } else {
                 this.accountBalance =
                     this.accountBalance + parseInt(this.actionInput.value);
-                this.transactions("Deposit", parseInt(this.actionInput.value));
+                this.transactions(
+                    "Deposit",
+                    parseInt(this.actionInput.value),
+                    this.accountBalance
+                );
                 this.updateBalance();
                 this.resetingInputs();
             }
@@ -99,7 +105,8 @@ class Minibank {
                         this.accountBalance - parseInt(this.actionInput.value);
                     this.transactions(
                         "Withdraw",
-                        parseInt(this.actionInput.value)
+                        parseInt(this.actionInput.value),
+                        this.accountBalance
                     );
                     this.updateBalance();
                     this.resetingInputs();
@@ -108,8 +115,17 @@ class Minibank {
         }
     };
 
-    transactions = (action, amount) => {
-        this.transactionsList.innerHTML += `<li> ${action} : ${amount} € </li>`;
+    transactions = (action, amount, balance) => {
+        var today = new Date();
+        var date =
+            today.getDate() +
+            "-" +
+            (today.getMonth() + 1) +
+            "-" +
+            today.getFullYear();
+        this.transactionsList.innerHTML += `<li> ${date} ${action} : ${amount.toLocaleString(
+            "en-US"
+        )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`;
     };
 
     updateBalance = () => {

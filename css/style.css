@@ -8,9 +8,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: #e0e0e0;
 }
-
+:root {
+    --main-grey-color: white;
+}
 
 /* ---- welocme Page ---- */
 
@@ -19,10 +21,16 @@ body {
     width: 650px;
     height: 550px;
     border-radius: 15px;
-    background: rgb(238, 174, 202);
-    background: radial-gradient( circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-}
 
+    /* background: rgb(238, 174, 202); */
+    /* background: radial-gradient(
+        circle,
+        rgba(238, 174, 202, 1) 0%,
+        rgba(148, 187, 233, 1) 100%
+    ); */
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
 .welcome-container h2 {
     margin: auto;
     margin-top: 30px;
@@ -33,6 +41,11 @@ body {
     margin-bottom: 40px;
     line-height: 6rem;
     font-family: "Bebas Neue", cursive;
+    color: white;
+
+    text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+    -moz-text-shadow: 0 0 2px #000;
+    -webkit-text-shadow: 0 0 2px #000;
 }
 
 .the-container {
@@ -44,7 +57,6 @@ body {
     margin: auto;
     width: 100%;
     height: 160px;
-    border: 1px solid black;
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -53,15 +65,15 @@ body {
 }
 
 #username-input {
-    height: 60px;
+    height: 50px;
     width: 96%;
     text-align: center;
     margin-bottom: 10px;
-    background-color: unset;
-    border: 1px solid black;
-    border-radius: 2.5px;
+    border: none;
+    border-radius: 7px;
     font-size: 1rem;
     margin-top: 10px;
+    box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
 }
 
 #username-input::placeholder {
@@ -70,22 +82,23 @@ body {
 
 #username-btn {
     height: 60px;
-    width: 96%;
+    width: 95%;
     background-color: unset;
-    border-radius: 2.5px;
+    border-radius: 7px;
     cursor: pointer;
     transition: all 0.3s ease-in;
-    border: 1px solid black;
+    border: none;
     color: black;
     font-size: 1rem;
     margin-bottom: 10px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
 #username-btn:hover {
     background-color: black;
     color: white;
 }
-
 
 /* ---- bank interface ----- */
 
@@ -103,10 +116,11 @@ body {
     text-align: center;
     border-radius: 10px;
     line-height: 30px;
-    border: 2px solid black;
+    border: none;
     margin-bottom: 10px;
     font-size: 1.5rem;
     background-color: rgba(255, 255, 255, 0.493);
+    box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
 }
 
 .bank-btns {
@@ -124,12 +138,17 @@ body {
     color: black;
     height: 40px;
     width: 160px;
-    border: 1px solid black;
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-color: unset;
+    outline: none;
+    border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
-    background-color: unset;
     border-radius: 10px;
     transition: all 0.3s ease-in;
     font-size: 1rem;
+    background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
+    box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
 #bank-deposit-btn:hover,

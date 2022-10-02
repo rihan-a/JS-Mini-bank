@@ -12,6 +12,7 @@ class Minibank {
         this.actionMenu = document.querySelector("#action-menu");
         this.actionInputBtn = document.querySelector("#action-input-btn");
         this.actionInput = document.querySelector("#action-input");
+        this.transactionsList = document.querySelector(".transaction-list");
 
         this.accountBalance = 0;
         this.userNameBtn.addEventListener("click", this.login);
@@ -20,7 +21,8 @@ class Minibank {
         this.withdrawBtn.addEventListener("click", this.openActionMenuWithdraw);
         this.actionInputBtn.addEventListener("click", this.depositing);
         this.actionInputBtn.addEventListener("click", this.withdrawing);
-        this.actionInput.innerHTML = this.actionInput.value.toLocaleString("en-US");
+        this.actionInput.innerHTML =
+            this.actionInput.value.toLocaleString("en-US");
     }
 
     login = () => {
@@ -76,6 +78,7 @@ class Minibank {
             } else {
                 this.accountBalance =
                     this.accountBalance + parseInt(this.actionInput.value);
+                this.transactions("Deposit", parseInt(this.actionInput.value));
                 this.updateBalance();
                 this.resetingInputs();
             }
@@ -94,6 +97,10 @@ class Minibank {
                 } else {
                     this.accountBalance =
                         this.accountBalance - parseInt(this.actionInput.value);
+                    this.transactions(
+                        "Withdraw",
+                        parseInt(this.actionInput.value)
+                    );
                     this.updateBalance();
                     this.resetingInputs();
                 }
@@ -101,10 +108,14 @@ class Minibank {
         }
     };
 
+    transactions = (action, amount) => {
+        this.transactionsList.innerHTML += `<li> ${action} : ${amount} € </li>`;
+    };
+
     updateBalance = () => {
         this.accountBalanceOutput.innerHTML = `${this.accountBalance.toLocaleString(
-      "en-US"
-    )}€ `;
+            "en-US"
+        )}€ `;
     };
 
     resetingInputs = () => {

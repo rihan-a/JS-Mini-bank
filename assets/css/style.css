@@ -19,7 +19,7 @@ body {
 
 .welcome-container {
     margin-top: 4rem;
-    width: 40%;
+    width: 45%;
     height: 550px;
     border-radius: 15px;
     background: #e0e0e0;
@@ -240,7 +240,7 @@ body {
 }
 
 .transactions .title {
-    width: 40%;
+    width: 45%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -266,7 +266,7 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
-    width: 40%;
+    width: 45%;
     height: 40px;
     border-radius: 7px;
     background: #e0e0e0;
@@ -278,7 +278,7 @@ body {
     font-weight: 500;
 }
 .transactions-container .minus {
-    color: red;
+    color: rgb(182, 0, 0);
     font-weight: 500;
 }
 

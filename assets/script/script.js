@@ -135,7 +135,7 @@ class Minibank {
             )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`
         );
 
-        localStorage.setItem(this.userNameInput.value, transactionsStorage);
+        //localStorage.setItem(this.userNameInput.value, transactionsStorage);
     };
 
     updateBalance = () => {

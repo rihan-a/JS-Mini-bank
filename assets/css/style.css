@@ -19,7 +19,7 @@ body {
 
 .welcome-container {
     margin-top: 4rem;
-    width: 650px;
+    width: 40%;
     height: 550px;
     border-radius: 15px;
     background: #e0e0e0;
@@ -164,24 +164,35 @@ body {
 #action-menu input {
     height: 100%;
     width: 200px;
-    border: 1px solid black;
     cursor: pointer;
     background-color: unset;
     border-radius: 10px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.24);
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-color: unset;
+    outline: none;
+    border: 0.1px solid rgb(193, 193, 193);
     font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.493);
+    box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
 }
 
 #action-menu button {
     color: black;
     height: 100%;
     width: 116px;
-    border: 1px solid black;
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-color: unset;
+    outline: none;
+    border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
     background-color: unset;
     border-radius: 10px;
     font-size: 1rem;
+    background: linear-gradient(145deg, #b9b9b9, #bbbbbb);
+    box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
 #action-menu button:hover {
@@ -199,12 +210,18 @@ body {
     margin: auto;
     width: 100%;
     height: 40px;
-    border: 1px solid black;
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-color: unset;
+    outline: none;
+    border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
     background-color: unset;
     border-radius: 10px;
     transition: all 0.3s ease-in;
     font-size: 1rem;
+    background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
+    box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
 .bank-interface {
@@ -213,16 +230,85 @@ body {
     margin: auto;
 }
 
-@media (max-width: 550px) {
+.transactions {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.transactions .title {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.transactions h3 {
+    margin-top: 20px;
+    color: grey;
+}
+.transaction-list {
+    margin-top: 5px;
+    color: grey;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.transactions-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+    width: 40%;
+    height: 40px;
+    border-radius: 7px;
+    background: #e0e0e0;
+    box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff;
+}
+
+.transactions-container .plus {
+    color: green;
+    font-weight: 500;
+}
+.transactions-container .minus {
+    color: red;
+    font-weight: 500;
+}
+
+.transactions-container .balance {
+    color: black;
+    font-weight: 500;
+}
+
+@media (max-width: 750px) {
     #username-input {
         width: 94%;
     }
     #username-btn {
         width: 94%;
     }
-    .bank-interface {
+    .welcome-container,
+    .bank-interface,
+    .transactions-container,
+    .transactions .title,
+    .actions {
         width: 90%;
     }
+    #bank-deposit-btn,
+    #bank-withdraw-btn {
+        width: 155px;
+    }
+    #action-menu input {
+        width: 190px;
+    }
+
     .to-bank {
         margin-top: 60px;
         width: 100%;
@@ -231,27 +317,8 @@ body {
         line-height: 4.5rem;
         font-size: 4.6rem;
     }
-    .actions {
-        width: 90%;
-    }
+
     .bank-interface {
         width: 100%;
     }
-}
-
-.transactions {
-    display: none;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 30%;
-}
-
-.transactions h3 {
-    margin-top: 20px;
-    color: grey;
-}
-.transaction-list {
-    margin-top: 10px;
-    color: grey;
 }

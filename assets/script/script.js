@@ -50,6 +50,8 @@ class Minibank {
         this.accountBalance = 0;
         this.updateBalance();
         this.actionMenu.style.display = "none";
+        this.transactionsContainer.style.display = "none";
+        this.transactionsList.innerHTML = "";
     };
 
     openActionMenuDeposit = () => {
@@ -81,9 +83,10 @@ class Minibank {
                 this.accountBalance =
                     this.accountBalance + parseInt(this.actionInput.value);
                 this.transactions(
-                    "Deposit",
+                    "+",
                     parseInt(this.actionInput.value),
-                    this.accountBalance
+                    this.accountBalance,
+                    "plus"
                 );
                 this.updateBalance();
                 this.resetingInputs();
@@ -104,9 +107,10 @@ class Minibank {
                     this.accountBalance =
                         this.accountBalance - parseInt(this.actionInput.value);
                     this.transactions(
-                        "Withdraw",
+                        "-",
                         parseInt(this.actionInput.value),
-                        this.accountBalance
+                        this.accountBalance,
+                        "minus"
                     );
                     this.updateBalance();
                     this.resetingInputs();
@@ -115,28 +119,39 @@ class Minibank {
         }
     };
 
-    transactions = (action, amount, balance) => {
-        var today = new Date();
-        var date =
-            today.getDate() +
+    transactions = (action, amount, balance, styling) => {
+        let now = new Date();
+        let date =
+            now.getDate() +
             "-" +
-            (today.getMonth() + 1) +
+            (now.getMonth() + 1) +
             "-" +
-            today.getFullYear();
-        var time = today.getHours() + ":" + today.getMinutes();
+            now.getFullYear();
 
-        this.transactionsList.innerHTML += `<li> ${time} -- ${date} -- ${action} -- ${amount.toLocaleString(
+        // digital time
+
+        let mins = now.getMinutes();
+        let hours = now.getHours();
+        let time;
+
+        if (mins < 10) {
+            time = hours + ":" + "0" + mins;
+        } else if (hours < 10) {
+            time = "0" + hours + ":" + mins;
+        } else {
+            time = hours + ":" + mins;
+        }
+
+        this.transactionsList.innerHTML += `<li class="transactions-container">
+                    <p class="amount ${styling}"> ${action}${amount.toLocaleString(
             "en-US"
-        )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`;
-
-        this.transactionsStorage.push(
-            `<li> ${time} -- ${date} -- ${action} -- ${amount.toLocaleString(
-                "en-US"
-            )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`
-        );
-
-        //localStorage.setItem(this.userNameInput.value, transactionsStorage);
+        )} €</p>
+                    <p class="balance">${balance.toLocaleString("en-US")}€</p>
+                    <p class="date">${date} - ${time}</p>
+                </li>`;
     };
+
+    //localStorage.setItem(this.userNameInput.value, transactionsStorage);
 
     updateBalance = () => {
         this.accountBalanceOutput.innerHTML = `${this.accountBalance.toLocaleString(

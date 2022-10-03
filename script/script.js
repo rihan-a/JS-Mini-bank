@@ -22,8 +22,8 @@ class Minibank {
         this.withdrawBtn.addEventListener("click", this.openActionMenuWithdraw);
         this.actionInputBtn.addEventListener("click", this.depositing);
         this.actionInputBtn.addEventListener("click", this.withdrawing);
-        this.actionInput.innerHTML =
-            this.actionInput.value.toLocaleString("en-US");
+        this.actionInput.value.toLocaleString("en-US");
+        this.transactionsStorage = [];
     }
 
     login = () => {
@@ -123,9 +123,19 @@ class Minibank {
             (today.getMonth() + 1) +
             "-" +
             today.getFullYear();
-        this.transactionsList.innerHTML += `<li> ${date} ${action} : ${amount.toLocaleString(
+        var time = today.getHours() + ":" + today.getMinutes();
+
+        this.transactionsList.innerHTML += `<li> ${time} -- ${date} -- ${action} -- ${amount.toLocaleString(
             "en-US"
         )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`;
+
+        this.transactionsStorage.push(
+            `<li> ${time} -- ${date} -- ${action} -- ${amount.toLocaleString(
+                "en-US"
+            )}€ : Current balance: ${balance.toLocaleString("en-US")} €</li>`
+        );
+
+        localStorage.setItem(this.userNameInput.value, transactionsStorage);
     };
 
     updateBalance = () => {

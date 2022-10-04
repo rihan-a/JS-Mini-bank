@@ -303,12 +303,16 @@ body {
     }
     #bank-deposit-btn,
     #bank-withdraw-btn {
-        width: 155px;
+        width: 130px;
     }
-    #action-menu input {
-        width: 190px;
+    #action-menu input,
+    #action-menu button {
+        width: 130px;
     }
 
+    #action-menu input {
+        font-size: 0.85rem;
+    }
     .to-bank {
         margin-top: 60px;
         width: 100%;

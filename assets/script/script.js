@@ -14,6 +14,9 @@ class Minibank {
         this.actionInput = document.querySelector("#action-input");
         this.transactionsList = document.querySelector(".transaction-list");
         this.transactionsContainer = document.querySelector(".transactions");
+        this.digitBtn = document.querySelector(".digits");
+        this.fullNumber = [];
+        this.inputNumber;
 
         this.accountBalance = 0;
         this.userNameBtn.addEventListener("click", this.login);
@@ -24,6 +27,7 @@ class Minibank {
         this.actionInputBtn.addEventListener("click", this.withdrawing);
         this.actionInput.value.toLocaleString("en-US");
         this.transactionsStorage = [];
+        this.digitBtn.addEventListener("click", this.addDigit);
     }
 
     login = () => {
@@ -75,9 +79,19 @@ class Minibank {
         this.depositBtn.style.color = "rgb(57, 57, 57)";
     };
 
+    addDigit = (e) => {
+        if (e.target.classList.contains("btn")) {
+            let num = e.target.getAttribute("value");
+            this.fullNumber.push(num);
+            this.inputNumber = Number(this.fullNumber.join(""));
+
+            this.actionInput.value = this.inputNumber;
+        }
+    };
+
     depositing = () => {
         if (this.depositBtn.value == "YES" && this.withdrawBtn.value == "NO") {
-            if (this.actionInput.value <= 1) {
+            if (this.actionInput.value < 1) {
                 alert("Please enter a valid amount!");
                 this.resetingInputs();
             } else {
@@ -89,6 +103,9 @@ class Minibank {
                     this.accountBalance,
                     "plus"
                 );
+                this.fullNumber = [];
+                this.inputNumber = 0;
+
                 this.updateBalance();
                 this.resetingInputs();
             }
@@ -113,6 +130,9 @@ class Minibank {
                         this.accountBalance,
                         "minus"
                     );
+                    this.fullNumber = [];
+                    this.inputNumber = 0;
+
                     this.updateBalance();
                     this.resetingInputs();
                 }

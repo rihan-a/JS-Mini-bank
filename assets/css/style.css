@@ -15,35 +15,33 @@ body {
     --main-grey-color: white;
 }
 
-/* ---- welocme Page ---- */
-
+/* -------------------------- welocme Page ------------------------------------ */
 .welcome-container {
     margin-top: 4rem;
-    width: 45%;
+    width: 30%;
     height: 550px;
     border-radius: 15px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
-.welcome-container h2 {
+#welcome-text {
     margin: auto;
-    margin-top: 30px;
-    font-size: 6.5rem;
-    width: 100%;
+    margin-top: 10px;
+    font-size: 3rem;
+    width: 80%;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     line-height: 6rem;
     font-family: "Bebas Neue", cursive;
     color: white;
-
-    text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+    text-shadow: 0 0 2px #000;
     -moz-text-shadow: 0 0 2px #000;
     -webkit-text-shadow: 0 0 2px #000;
 }
 
 .the-container {
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
@@ -99,13 +97,19 @@ body {
     color: white;
 }
 
-/* ---- bank interface ----- */
+/* ------------------------- bank interface -------------------------- */
 
 .sec-title {
-    margin-top: 20px;
     margin-bottom: 10px;
-    text-align: center;
-    font-size: 1.7rem;
+    /* text-align: center; */
+    font-size: 1.2rem;
+    color: rgb(57, 57, 57);
+}
+
+.bank-interface {
+    display: none;
+    width: 80%;
+    margin: auto;
 }
 
 #account-balance {
@@ -113,7 +117,7 @@ body {
     width: 100%;
     padding: 10px 0;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     line-height: 30px;
     border: none;
     margin-bottom: 20px;
@@ -136,14 +140,14 @@ body {
 #bank-withdraw-btn {
     color: rgb(57, 57, 57);
     height: 50px;
-    width: 160px;
+    width: 48%;
     -webkit-appearance: none;
     border-width: 0px;
     border-color: unset;
     outline: none;
     border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all 0.3s ease-in;
     font-size: 1rem;
     background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
@@ -168,10 +172,10 @@ body {
 
 #action-menu input {
     height: 100%;
-    width: 200px;
+    width: 48%;
     cursor: pointer;
     background-color: unset;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
     -webkit-appearance: none;
     border-width: 0px;
@@ -186,7 +190,7 @@ body {
 #action-menu button {
     color: black;
     height: 100%;
-    width: 116px;
+    width: 48%;
     -webkit-appearance: none;
     border-width: 0px;
     border-color: unset;
@@ -194,7 +198,7 @@ body {
     border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
     background-color: unset;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1rem;
     background: linear-gradient(145deg, #b9b9b9, #bbbbbb);
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
@@ -222,18 +226,14 @@ body {
     border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
     background-color: unset;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all 0.3s ease-in;
     font-size: 1rem;
     background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
-.bank-interface {
-    display: none;
-    width: 60%;
-    margin: auto;
-}
+/* -------------------------------------- Transactions area -------------------------------------- */
 
 .transactions {
     display: none;
@@ -245,7 +245,7 @@ body {
 }
 
 .transactions .title {
-    width: 45%;
+    width: 30%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -254,6 +254,7 @@ body {
 .transactions h3 {
     margin-top: 20px;
     color: grey;
+    font-weight: 400;
 }
 .transaction-list {
     margin-top: 5px;
@@ -271,9 +272,9 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
-    width: 45%;
+    width: 30%;
     height: 40px;
-    border-radius: 7px;
+    border-radius: 5px;
     background: #e0e0e0;
     box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff;
 }
@@ -288,8 +289,19 @@ body {
 }
 
 .transactions-container .balance {
-    color: black;
+    color: rgb(57, 57, 57);
     font-weight: 500;
+    width: 25%;
+}
+
+.transactions-container .amount {
+    width: 25%;
+}
+
+.transactions-container .date {
+    width: 25%;
+
+    text-align: center;
 }
 
 @media (max-width: 750px) {
@@ -314,14 +326,14 @@ body {
         margin-bottom: 50px;
     }
 
-    #bank-deposit-btn,
+    /* #bank-deposit-btn,
     #bank-withdraw-btn {
         width: 135px;
     }
     #action-menu input,
     #action-menu button {
         width: 135px;
-    }
+    } */
 
     #action-menu input {
         font-size: 0.85rem;
@@ -336,6 +348,6 @@ body {
     }
 
     .bank-interface {
-        width: 100%;
+        width: 90%;
     }
 }

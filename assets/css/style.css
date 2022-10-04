@@ -236,6 +236,13 @@ input::-webkit-inner-spin-button {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.4s ease-in;
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-color: unset;
+    outline: none;
+    border: 0.1px solid rgb(193, 193, 193);
+    cursor: pointer;
+    background-color: unset;
 }
 .digits .btn:hover {
     background: linear-gradient(145deg, #919191, #7c7c7c);

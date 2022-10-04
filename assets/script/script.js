@@ -1,5 +1,6 @@
 class Minibank {
     constructor() {
+        // variables DOM
         this.accountBalanceOutput = document.querySelector("#account-balance");
         this.depositBtn = document.querySelector("#bank-deposit-btn");
         this.withdrawBtn = document.querySelector("#bank-withdraw-btn");
@@ -14,20 +15,26 @@ class Minibank {
         this.actionInput = document.querySelector("#action-input");
         this.transactionsList = document.querySelector(".transaction-list");
         this.transactionsContainer = document.querySelector(".transactions");
+        this.actionInput.value.toLocaleString("en-US");
         this.digitBtn = document.querySelector(".digits");
+        this.digitClear = document.querySelector(".clear");
+        this.digitDelete = document.querySelector(".del");
+
+        // variables general
         this.fullNumber = [];
         this.inputNumber;
-
         this.accountBalance = 0;
+
+        // Event listners
         this.userNameBtn.addEventListener("click", this.login);
         this.exitBtn.addEventListener("click", this.exitBank);
         this.depositBtn.addEventListener("click", this.openActionMenuDeposit);
         this.withdrawBtn.addEventListener("click", this.openActionMenuWithdraw);
         this.actionInputBtn.addEventListener("click", this.depositing);
         this.actionInputBtn.addEventListener("click", this.withdrawing);
-        this.actionInput.value.toLocaleString("en-US");
-        this.transactionsStorage = [];
         this.digitBtn.addEventListener("click", this.addDigit);
+        this.digitClear.addEventListener("click", this.clearDigits);
+        this.digitDelete.addEventListener("click", this.deleteDigit);
     }
 
     login = () => {
@@ -84,9 +91,19 @@ class Minibank {
             let num = e.target.getAttribute("value");
             this.fullNumber.push(num);
             this.inputNumber = Number(this.fullNumber.join(""));
-
             this.actionInput.value = this.inputNumber;
         }
+    };
+
+    deleteDigit = () => {
+        this.fullNumber.pop();
+        this.inputNumber = Number(this.fullNumber.join(""));
+        this.actionInput.value = this.inputNumber;
+    };
+
+    clearDigits = () => {
+        this.fullNumber = [];
+        this.inputNumber = 0;
     };
 
     depositing = () => {

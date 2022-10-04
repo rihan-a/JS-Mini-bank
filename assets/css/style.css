@@ -28,7 +28,7 @@ body {
     margin: 15px auto;
     font-size: 2.5rem;
     width: 80%;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
     font-family: "Roboto Mono", monospace;
     color: rgb(57, 57, 57);
@@ -87,7 +87,7 @@ body {
 }
 
 #username-btn:hover {
-    background-color: rgb(57, 57, 57);
+    background: linear-gradient(145deg, #919191, #7c7c7c);
     color: white;
 }
 
@@ -150,8 +150,7 @@ body {
 #bank-deposit-btn:hover,
 #bank-withdraw-btn:hover,
 #bank-exit-btn:hover {
-    background-color: rgb(57, 57, 57);
-    color: white;
+    background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
 #action-menu {
@@ -207,7 +206,7 @@ input::-webkit-inner-spin-button {
 }
 
 #action-menu button:hover {
-    background-color: rgb(57, 57, 57);
+    background: linear-gradient(145deg, #919191, #7c7c7c);
     color: white;
 }
 
@@ -260,10 +259,13 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     background-color: unset;
     border-radius: 5px;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
     font-size: 1rem;
     background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
+}
+#bank-exit-btn:hover {
+    background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
 /* ------------------------------------ Transactions area -------------------------------------- */

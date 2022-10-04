@@ -55,23 +55,23 @@ class Minibank {
     };
 
     openActionMenuDeposit = () => {
-        this.depositBtn.style.background = "black";
+        this.depositBtn.style.background = "rgb(57, 57, 57)";
         this.depositBtn.style.color = "white";
         this.actionMenu.style.display = "flex";
         this.depositBtn.value = "YES";
         this.withdrawBtn.value = "NO";
         this.withdrawBtn.style.background = "unset";
-        this.withdrawBtn.style.color = "black";
+        this.withdrawBtn.style.color = "rgb(57, 57, 57)";
     };
 
     openActionMenuWithdraw = () => {
-        this.withdrawBtn.style.background = "black";
+        this.withdrawBtn.style.background = "rgb(57, 57, 57)";
         this.withdrawBtn.style.color = "white";
         this.actionMenu.style.display = "flex";
         this.withdrawBtn.value = "YES";
         this.depositBtn.value = "NO";
         this.depositBtn.style.background = "unset";
-        this.depositBtn.style.color = "black";
+        this.depositBtn.style.color = "rgb(57, 57, 57)";
     };
 
     depositing = () => {

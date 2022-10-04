@@ -37,6 +37,8 @@ class Minibank {
             this.welcomeText.innerHTML = `Hi ${this.userNameInput.value}.. `;
             this.bankInterface.style.display = "block";
             this.transactionsContainer.style.display = "flex";
+            this.actionMenu.style.display = "flex";
+            this.openActionMenuDeposit();
             this.userNameInput.value = "";
         } else {
             alert("Please enter a valid name!");
@@ -57,7 +59,6 @@ class Minibank {
     openActionMenuDeposit = () => {
         this.depositBtn.style.background = "rgb(57, 57, 57)";
         this.depositBtn.style.color = "white";
-        this.actionMenu.style.display = "flex";
         this.depositBtn.value = "YES";
         this.withdrawBtn.value = "NO";
         this.withdrawBtn.style.background = "unset";
@@ -143,11 +144,13 @@ class Minibank {
         }
 
         this.transactionsList.innerHTML += `<li class="transactions-container">
-                    <p class="amount ${styling}"> ${action}${amount.toLocaleString(
+                    <div class="amount ${styling}"> ${action}${amount.toLocaleString(
             "en-US"
-        )} €</p>
-                    <p class="balance">${balance.toLocaleString("en-US")}€</p>
-                    <p class="date">${date} - ${time}</p>
+        )} €</div>
+                    <div class="balance">${balance.toLocaleString(
+                        "en-US"
+                    )}€</div>
+                    <div class="date">${date} - ${time}</div>
                 </li>`;
     };
 

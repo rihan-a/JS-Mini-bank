@@ -25,14 +25,11 @@ body {
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 #welcome-text {
-    margin: auto;
-    margin-top: 10px;
-    font-size: 3rem;
+    margin: 15px auto;
+    font-size: 2.5rem;
     width: 80%;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    line-height: 6rem;
     font-family: "Bebas Neue", cursive;
     color: white;
     text-shadow: 0 0 2px #000;
@@ -43,6 +40,19 @@ body {
 .the-container {
     width: 100%;
     margin: auto;
+}
+#username-input {
+    height: 50px;
+    width: 80%;
+    text-align: center;
+    background-color: unset;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.493);
+    box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
 }
 
 .to-bank {
@@ -56,26 +66,13 @@ body {
     flex-direction: column;
 }
 
-#username-input {
-    height: 50px;
-    width: 96%;
-    text-align: center;
-    background-color: unset;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 7px;
-    font-size: 1rem;
-    margin-top: 10px;
-    box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
-}
-
 #username-input::placeholder {
     color: rgb(65, 65, 65);
 }
 
 #username-btn {
     height: 60px;
-    width: 95%;
+    width: 80%;
     -webkit-appearance: none;
     background-color: unset;
     border-width: 0px;
@@ -101,7 +98,6 @@ body {
 
 .sec-title {
     margin-bottom: 10px;
-    /* text-align: center; */
     font-size: 1.2rem;
     color: rgb(57, 57, 57);
 }
@@ -211,6 +207,16 @@ body {
 
 #action-menu {
     display: none;
+}
+
+.digits {
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
 }
 
 #bank-exit-btn {

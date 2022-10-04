@@ -298,6 +298,7 @@ input::-webkit-inner-spin-button {
 
 .transactions-container {
     display: flex;
+    text-align: center;
     justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
@@ -320,15 +321,16 @@ input::-webkit-inner-spin-button {
 .transactions-container .balance {
     color: rgb(57, 57, 57);
     font-weight: 500;
-    width: 25%;
+    width: 20%;
+=
 }
 
 .transactions-container .amount {
-    width: 25%;
+    width: 20%;
 }
 
 .transactions-container .date {
-    width: 25%;
+    width: 40%;
 
     text-align: center;
 }

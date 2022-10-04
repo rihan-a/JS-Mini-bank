@@ -19,7 +19,7 @@ body {
 .welcome-container {
     margin-top: 4rem;
     width: 30%;
-    height: 550px;
+
     border-radius: 15px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
@@ -183,6 +183,15 @@ body {
     box-shadow: inset 5px 5px 10px #b5b5b5, inset -5px -5px 10px #ffffff;
 }
 
+/* -- remove input arrows -- */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 #action-menu button {
     color: black;
     height: 100%;
@@ -211,18 +220,32 @@ body {
 
 .digits {
     width: 100%;
-    height: 200px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-bottom: 15px;
+}
+.digits .btn {
+    height: 50px;
+    border-radius: 5px;
+    border: 0.1px solid rgb(193, 193, 193);
+    background: linear-gradient(145deg, #cbcbcb, #a5a5a5);
+    box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+}
+.digits .btn:hover {
+    background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
 #bank-exit-btn {
     color: black;
     display: block;
     margin: auto;
+    margin-bottom: 40px;
     width: 100%;
     height: 50px;
     -webkit-appearance: none;
@@ -239,7 +262,7 @@ body {
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
 
-/* -------------------------------------- Transactions area -------------------------------------- */
+/* ------------------------------------ Transactions area -------------------------------------- */
 
 .transactions {
     display: none;

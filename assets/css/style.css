@@ -19,16 +19,17 @@ body {
 .welcome-container {
     margin-top: 4rem;
     width: 30%;
-
     border-radius: 15px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 #welcome-text {
+    text-align: center;
     margin: 15px auto;
     font-size: 2.5rem;
-    width: 80%;
-    font-weight: 500;
+    width: 100%;
+
+    font-weight: 700;
     text-transform: uppercase;
     font-family: "Roboto Mono", monospace;
     color: rgb(57, 57, 57);
@@ -38,7 +39,7 @@ body {
     width: 100%;
     margin: auto;
 }
-#username-input {
+.user-input {
     height: 50px;
     width: 80%;
     text-align: center;
@@ -55,7 +56,7 @@ body {
 .to-bank {
     margin: auto;
     width: 100%;
-    height: 160px;
+    /* height: 160px; */
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -63,13 +64,14 @@ body {
     flex-direction: column;
 }
 
-#username-input::placeholder {
+.user-input::placeholder {
     color: rgb(65, 65, 65);
 }
 
 #username-btn {
     height: 60px;
     width: 80%;
+
     -webkit-appearance: none;
     background-color: unset;
     border-width: 0px;
@@ -81,7 +83,7 @@ body {
     border: none;
     color: black;
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     background: linear-gradient(145deg, #f0f0f0, #cacaca);
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
@@ -89,6 +91,10 @@ body {
 #username-btn:hover {
     background: linear-gradient(145deg, #919191, #7c7c7c);
     color: white;
+}
+
+.to-bank .digits {
+    width: 80%;
 }
 
 /* ------------------------- bank interface -------------------------- */
@@ -108,7 +114,7 @@ body {
 #account-balance {
     margin: auto;
     width: 100%;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
     border-radius: 5px;
     line-height: 30px;
@@ -149,7 +155,7 @@ body {
 
 #bank-deposit-btn:hover,
 #bank-withdraw-btn:hover,
-#bank-exit-btn:hover {
+.amount-enter-btn:hover {
     background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
@@ -164,7 +170,7 @@ body {
 
 #action-menu input {
     height: 100%;
-    width: 48%;
+    width: 100%;
     cursor: pointer;
     background-color: unset;
     border-radius: 5px;
@@ -235,16 +241,20 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     border-width: 0px;
     border-color: unset;
+    color: black;
+
     outline: none;
     border: 0.1px solid rgb(193, 193, 193);
     cursor: pointer;
     background-color: unset;
+    /* --- diable double tap on touch screens --- */
+    touch-action: manipulation;
 }
 .digits .btn:hover {
     background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
-#bank-exit-btn {
+.amount-enter-btn {
     color: black;
     display: block;
     margin: auto;
@@ -264,7 +274,7 @@ input::-webkit-inner-spin-button {
     background: linear-gradient(145deg, #f0f0f0, #e2e2e2);
     box-shadow: 5px 5px 10px #b5b5b5, -5px -5px 10px #ffffffd2;
 }
-#bank-exit-btn:hover {
+.amount-enter-btn:hover {
     background: linear-gradient(145deg, #919191, #7c7c7c);
 }
 
@@ -336,16 +346,21 @@ input::-webkit-inner-spin-button {
 
 .transactions-container .date {
     width: 40%;
-
     text-align: center;
 }
 
 @media (max-width: 750px) {
-    #username-input {
+    #welcome-text {
+        font-size: 2rem;
+        margin: 10px auto;
+        width: 90%;
+    }
+    .user-input {
         width: 94%;
     }
     #username-btn {
         width: 94%;
+        margin-bottom: 15px;
     }
     .welcome-container,
     .bank-interface,
@@ -354,6 +369,11 @@ input::-webkit-inner-spin-button {
     .actions {
         width: 90%;
     }
+
+    .to-bank .digits {
+        width: 95%;
+    }
+
     .welcome-container {
         height: 100%;
     }
@@ -361,21 +381,10 @@ input::-webkit-inner-spin-button {
     .the-container {
         margin-bottom: 50px;
     }
-
-    /* #bank-deposit-btn,
-    #bank-withdraw-btn {
-        width: 135px;
-    }
-    #action-menu input,
-    #action-menu button {
-        width: 135px;
-    } */
-
     #action-menu input {
         font-size: 0.85rem;
     }
     .to-bank {
-        margin-top: 60px;
         width: 100%;
     }
     .welcome-container h2 {
@@ -385,5 +394,14 @@ input::-webkit-inner-spin-button {
 
     .bank-interface {
         width: 90%;
+    }
+
+    .transactions .title {
+        font-size: 0.9rem;
+    }
+    .transactions-container .date,
+    .transactions-container .amount,
+    .transactions-container .balance {
+        font-size: 0.7rem;
     }
 }

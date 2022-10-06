@@ -5,11 +5,13 @@ class Minibank {
         this.depositBtn = document.querySelector("#bank-deposit-btn");
         this.withdrawBtn = document.querySelector("#bank-withdraw-btn");
         this.userNameInput = document.querySelector("#username-input");
+        this.passCodeInput = document.querySelector("#passcode-input");
+
         this.userNameBtn = document.querySelector("#username-btn");
         this.welcomeText = document.querySelector("#welcome-text");
         this.inputBtnGroup = document.querySelector(".to-bank");
         this.bankInterface = document.querySelector(".bank-interface");
-        this.exitBtn = document.querySelector("#bank-exit-btn");
+        //this.exitBtn = document.querySelector("#bank-exit-btn");
         this.actionMenu = document.querySelector("#action-menu");
         this.actionInputBtn = document.querySelector("#action-input-btn");
         this.actionInput = document.querySelector("#action-input");
@@ -27,7 +29,7 @@ class Minibank {
 
         // Event listners
         this.userNameBtn.addEventListener("click", this.login);
-        this.exitBtn.addEventListener("click", this.exitBank);
+        //this.exitBtn.addEventListener("click", this.exitBank);
         this.depositBtn.addEventListener("click", this.openActionMenuDeposit);
         this.withdrawBtn.addEventListener("click", this.openActionMenuWithdraw);
         this.actionInputBtn.addEventListener("click", this.depositing);
@@ -57,7 +59,7 @@ class Minibank {
     };
 
     exitBank = () => {
-        this.welcomeText.innerHTML = "Welcome to the mini-bank";
+        //this.welcomeText.innerHTML = "Welcome to the mini-bank";
         this.bankInterface.style.display = "none";
         this.inputBtnGroup.style.display = "flex";
         this.accountBalance = 0;
